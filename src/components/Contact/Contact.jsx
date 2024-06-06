@@ -2,25 +2,25 @@ import { GoPersonFill } from "react-icons/go";
 import { FaPhoneAlt } from "react-icons/fa";
 import css from "./Contact.module.css";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
+import { deleteContact } from "../../redux/contactsOps";
 
-export default function Contact({ id, name, number }) {
-  const dispatch = useDispatch();
+export default function Contact({ contact }) {
+    const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    dispatch(deleteContact(id))
-  }
+    const handleDelete = () => {
+      dispatch(deleteContact(contact.id))
+    }
 
   return (
     <>
       <div>
         <p className={css.item}>
           <GoPersonFill />
-          {name}
+          {contact.name}
         </p>
         <p className={css.item}>
           <FaPhoneAlt />
-          {number}
+          {contact.number}
         </p>
       </div>
       <button

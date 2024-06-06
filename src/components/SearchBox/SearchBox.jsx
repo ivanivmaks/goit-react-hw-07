@@ -9,8 +9,7 @@ export default function SearchBox() {
   const dispatch = useDispatch();
 
   const handleFilter = (event) => {
-    const name = event.target.value.trim();
-    dispatch(setStatusFilter(name));
+    dispatch(setStatusFilter(event.target.value));
   };
 
   const filterId = useId();
